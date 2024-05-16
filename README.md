@@ -40,3 +40,5 @@ Smileys and special characters might cause problems in the database query, so th
 
 If further work would be needed on this repo a linter and some test framework should be added, however for the sake of simplicity I omitted them for now.
 
+There is miconception of the algorithm, given that input contains `with sugar` it also finds the sugar-free options, which is not the output we want.
+It should consider these modifier keywords such as with, without etc.
