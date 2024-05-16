@@ -66,6 +66,10 @@ class Processor {
     
             const nextKey = remainingKeys[0];
             const nextValues: DataType[] = data[nextKey];
+
+            if (nextValues.length === 0) {
+                recursiveHelper(currentCombination, remainingKeys.slice(1));
+            }
     
             for (const value of nextValues) {
                 const newCombination = { ...currentCombination, [nextKey]: value };
@@ -80,7 +84,7 @@ class Processor {
     public static async searchTerm(searchTerm: string) {
         const processedInput = this.processInput(searchTerm);
 
-        const results = await this.executeQuery(processedInput)
+        const results = await this.executeQuery(processedInput);
     
         const convertedResult = this.convertResponse(results);
 
