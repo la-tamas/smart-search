@@ -44,5 +44,3 @@ There is miconception of the algorithm, given that input contains `with sugar` i
 It should consider these modifier keywords such as with, without etc.
 
 The algorithm returns only strict matches. For the simple input `London` it returns only the city. Ideally this should return all the possible combinations.
-Also when the keywords given contain special characters like `-` `&` etc, it only returns matches if the input exactly matches the entries in the database.
-These cases should be treated to obtain more precise results.

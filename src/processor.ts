@@ -7,7 +7,7 @@ class Processor {
      * Process input string, by filtering out short words, adding search wildcard and concatenating
      */
     private static processInput(searchTerm: string) {
-        return searchTerm.split(' ').reduce<string>((list, chunk) => {
+        return searchTerm.replace(/\&/g, ' ').replace(/(?:(?:`s|'s)|([^A-Za-z ]))/g, '').split(' ').reduce<string>((list, chunk) => {
             if (chunk.length < 3) {
                 return list
             }
@@ -83,6 +83,8 @@ class Processor {
 
     public static async searchTerm(searchTerm: string) {
         const processedInput = this.processInput(searchTerm);
+
+        console.log(processedInput)
 
         const results = await this.executeQuery(processedInput);
     
