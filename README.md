@@ -2,17 +2,17 @@
 
 ### SETUP
 
-I was trying to keep this really simple
+I was trying to keep this really simple.
 
-To start the database open a terminal and run
+To start the database open a terminal and run:
 
         docker-compose up
 
-You may need to add the following line to your hosts file
+You may need to add the following line to your hosts file:
 
         0.0.0.0 db
 
-To build and start the app open an other terminal and run
+To build and start the app open an other terminal and run:
 
         npm install
 
@@ -24,13 +24,15 @@ To build and start the app open an other terminal and run
 
         npm run start
 
-This will run the import and the `searchTerm` function once
+This will run the import and the `searchTerm` function once.
 
-After the first steps, the `searchTerm` function can be runned with
+After the first steps, the `searchTerm` function can be runned with:
+
+        npm run build
     
         npm run start
 
-To run the function with different inputs, modify directly the `inputString` variable in the `index.ts` file.
+To run the function with different inputs, modify directly the `inputString` variable in the `index.ts` file and rerunning the above commands.
 
 ### Improvements
 
