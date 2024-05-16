@@ -29,4 +29,4 @@ After the first steps, the `searchTerm` function can be runned with
 
 ### Improvements
 
-    Smileys and special characters might cause problems in the database query, so the process function might need to handle these cases as well.
+Smileys and special characters might cause problems in the database query, so the process function might need to handle these cases as well.
