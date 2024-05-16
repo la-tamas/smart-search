@@ -55,12 +55,12 @@ class Processor {
      * Creates all possible combinations for the input
      */
     private static createCombinations(data: MappedDataType) {
-        const results: Partial<DataMapType>[] = [];
+        const results = new Set<Partial<DataMapType>>();
         const keys = Object.keys(data);
 
         function recursiveHelper(currentCombination: Partial<DataMapType>, remainingKeys: string[]) {
             if (remainingKeys.length === 0) {
-                results.push(currentCombination);
+                results.add(currentCombination);
                 return;
             }
     
@@ -74,7 +74,7 @@ class Processor {
         }
     
         recursiveHelper({}, keys);
-        return results;
+        return Array.from(results);
     }
 
     public static async searchTerm(searchTerm: string) {

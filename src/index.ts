@@ -1,6 +1,6 @@
 import Processor from './processor';
 
-const string = 'Veg sushi in London'
+const inputString = 'Veg sushi in London'
 
 const searchTerm = async (searchTerm: string) => {
     const results = await Processor.searchTerm(searchTerm);
@@ -8,4 +8,4 @@ const searchTerm = async (searchTerm: string) => {
     console.log(results);
 }
 
-searchTerm(string);
+searchTerm(inputString);
