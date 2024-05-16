@@ -12,6 +12,9 @@ class Importer {
         this.importData('cities');
     }
 
+    /**
+     * Run import for the given table name from a csv file named accordingly
+     */
     private importData(type: TableNames) {
         const csvContent: DataType[] = [];
         createReadStream(join(process.cwd(), `${type}-${type}.csv`))

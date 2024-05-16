@@ -3,6 +3,9 @@ import { Sql } from './generated/client/runtime/library';
 import { DataType, MappedDataType, DataTypeWithSource, DataMapType } from './models/types';
 
 class Processor {
+    /**
+     * Process input string, by filtering out short words, adding search wildcard and concatenating
+     */
     private static processInput(searchTerm: string) {
         return searchTerm.split(' ').reduce<string>((list, chunk) => {
             if (chunk.length < 3) {
@@ -27,6 +30,9 @@ class Processor {
         return await prisma.$queryRaw<DataTypeWithSource[]>(new Sql([sql], []));
     }
 
+    /**
+     * Convert the response to the necessary format
+     */
     private static convertResponse(inputArray: DataTypeWithSource[]) {
         const resultMap = inputArray.reduce<MappedDataType>((map, array) => {
             const { source, ...rest } = array;
@@ -45,6 +51,9 @@ class Processor {
         return this.createCombinations(resultMap);
     }
 
+    /**
+     * Creates all possible combinations for the input
+     */
     private static createCombinations(data: MappedDataType) {
         const results: Partial<DataMapType>[] = [];
         const keys = Object.keys(data);
