@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model cities {
+    id      Int     @id(map: "pk_cities") @default(autoincrement())      
+    name    String  @db.VarChar(100)
+}
+
+model dishtypes {
+    id      Int     @id(map: "pk_dishtypes") @default(autoincrement())
+    name    String  @db.VarChar(100)
+}
+
+model brands {
+    id      Int     @id(map: "pk_brands") @default(autoincrement())
+    name    String  @db.VarChar(100)
+}
+
+model diets {
+    id      Int     @id(map: "pk_diets") @default(autoincrement())
+    name    String  @db.VarChar(100)
+}
